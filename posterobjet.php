@@ -14,192 +14,170 @@ session_start();
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 
     <style>
-       /* Réinitialisation des marges et du padding */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-    font-family: Arial, sans-serif;
-    outline: none;
-}
-
-/* Styles pour le corps de la page */
-body {
-    display: flex;
-    background: #ebe9e9;
-    margin: 0;
-    z-index: 2;
-}
-
-/* Styles pour la barre latérale */
-.sidebar {
-    position: fixed;
-    width: 80px;
-    height: 100%;
-    background: #4b4276;
-    padding: 0 1.7rem;
-    transition: all 0.5s linear;
-    scrollbar-width: none;
-    top: 0;
-    left: 0;
-    color: #fff;
-    overflow: auto;
-    z-index: 1;
-}
-
-/* Styles pour la barre latérale lorsqu'elle est survolée */
-.sidebar:hover {
-    width: 290px;
-    transition: 0.5s;
-}
-
-/* Styles pour le logo */
-.logo {
-    height: 80px;
-    padding: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-
-/* Styles pour les éléments principaux */
-.main {
-    height: 88%;
-    position: relative;
-    list-style: none;
-    padding: 0;
-}
-
-.main li {
-    padding: 1rem;
-    margin: 8px 0;
-    border-radius: 8px;
-    transition: all 0.5s ease-in-out;
-}
-
-.main li:hover, .active {
-    background: #594f8d;
-}
-
-.main a {
-    color: #fff;
-    font-size: 14px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-/* Styles pour le contenu principal */
-.main-content {
-    position: relative;
-    width: calc(100% - 80px); /* Laisse de l'espace pour la sidebar */
-    margin-left: 80px; /* Espace pour la sidebar */
-    padding: 20px;
-    height: 2000px; /* Ajustez selon vos besoins */
-    overflow-y: auto;
-}
-
-/* Styles pour l'en-tête */
-.header-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    background: #fff;
-    border-radius: 10px;
-    padding: 16px 2rem;
-    margin-bottom: 1rem;
-}
-
-.header-title {
-    color: rgba(113, 99, 186, 255);
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.search-box {
-    background: rgb(237, 237, 237);
-    border-radius: 15px;
-    color: rgba(113, 99, 186, 255);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 4px 12px;
-}
-
-.search-box input {
-    background: transparent;
-    padding: 10px;
-    border: none;
-}
-
-.search-box i {
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.5s ease-out;
-}
-
-.search-box i:hover {
-    transform: scale(1.2);
-}
-
-/* Styles pour les tableaux */
-.table {
-    text-align: center;
-    margin-top: 20px;
-    text-decoration: underline;
-}
-
-th, td {
-    text-align: center;
-}
-
-table {
-    margin: 0 auto;
-    width: 100%; /* Ajusté pour s'adapter à la largeur de l'écran */
-    max-width: 1000px; /* Limite la largeur maximale */
-    margin-top: 20px;
-}
-
-/* Styles pour les modales */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 90%; /* Ajusté pour s'adapter à la largeur de l'écran */
-    max-width: 600px; /* Limite la largeur maximale */
-}
-
-/* Styles pour les boutons et les champs */
-.momo {
-    width: 100%;
-    max-width: 300px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            outline: none;
+        }
+        body {
+            display: flex;
+            background: #ebe9e9;
+            margin: 0;
+            z-index: 2;
+        }
+        .sidebar {
+            position: fixed;
+            width: 80px;
+            height: 100%;
+            background: #4b4276;
+            padding: 0 1.7rem;
+            transition: all 0.5s linear;
+            scrollbar-width: none;
+            top: 0;
+            left: 0;
+            color: #fff;
+            overflow: auto; 
+            z-index: 1;
+        }
+        .sidebar:hover {
+            width: 290px;
+            transition: 0.5s;
+        }
+        .logo {
+            height: 80px;
+            padding: 16px;
+        } 
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .main {
+            height: 88%;
+            position: relative;
+            list-style: none;
+            padding: 0;
+        }
+        .main li {
+            padding: 1rem;
+            margin: 8px 0;
+            border-radius: 8px;
+            transition: all 0.5s ease-in-out;
+        }
+        .main li:hover, .active {
+            background: #594f8d;
+        }
+        .main a {
+            color: #fff;
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .main-content {
+            position: relative;
+            width: 100%;
+            margin-left: 100px; /* Laisse de l'espace pour la sidebar */
+            padding: 20px; /* Ajoute un espacement autour du contenu */
+            height: 2000px; /* Hauteur de contenu pour démontrer le défilement */
+            overflow-y: auto; /* Permet le défilement uniquement sur le contenu principal */
+        }
+        .header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            background: #fff;
+            border-radius: 10px;
+            padding: 16px 2rem;
+            margin-bottom: 1rem;
+        }
+        .header-title {
+            color: rgba(113, 99, 186, 255);
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .search-box {
+            background: rgb(237, 237, 237);
+            border-radius: 15px;
+            color: rgba(113, 99, 186, 255);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 12px;
+        }
+        .search-box input {
+            background: transparent;
+            padding: 10px;
+            border: none;
+        }
+        .search-box i {
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.5s ease-out;
+        }
+        .search-box i:hover {
+            transform: scale(1.2);
+        }
+        .table {
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: underline;
+        }
+        th, td {
+            text-align: center;
+        }
+        table {
+            margin: 0 auto; /* Centre le tableau */
+            width: 80%; /* Ajustez la largeur selon vos besoins */
+            margin-top: 20px;
+           
+        }
+        .modal {
+            display: none; /* Masquer par défaut */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Largeur de la modal */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        h1,h2{
+            align-items: center;
+            display:flex;
+            justify-content:center;
+        }
+         .momo{
+     width: 30%;
     height: 45px;
     background: #3c2f83;
     border: none;
@@ -210,101 +188,97 @@ table {
     font-size: 16px;
     color: #fff;
     font-weight: 600;
+   left: 50%;
+   top: 10px;
     text-align: center;
-    margin: 10px auto; /* Centré avec une marge auto */
-}
+    transform: translate(-50%, -50%);
+    position: relative;
 
-.input-chexbox {
-    width: 100%;
-    margin: 30px 0;
-}
 
-.input-chexbox input {
+        }
+   .input-chexbox{
+    position: relative;
+     width: 100%;
+     height: 50px;
+     background: rgba(255, 255, 255, 0) ;
+     margin: 30px 0;
+     
+}
+.input-chexbox input{
     width: 100%;
-    height: 50px;
+    height: 100%;
+    outline: none;
     border: 2px solid black;
     border-radius: 40px;
     font-size: 16px;
     color: #000;
     padding: 20px 45px 20px 20px;
 }
+.body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;/* Dark background */
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .button-container {
+            display: flex;
+            gap: 20px;
+            margin: 20px;
+        }
+        .button-container img{/* Red color for camera button */
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+        }
+        img{
+            border: none;
+            border-radius: 50%;
+        }
+        
+        #importImage {
+            display: none;
+            margin: 20px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            margin: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
-/* Styles pour la galerie d'images */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 10px;
-    margin: 20px;
-}
 
-.gallery img {
-    width: 100%;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* Styles pour les labels et les sélecteurs */
 label {
     font-weight: bold;
-    color: #333;
-    margin-right: 10px;
+    color: #333; /* Dark text color */
+    margin-right: 10px; /* Space between label and dropdown */
 }
 
 select {
-    padding: 10px;
-    border: 2px solid #5D3C6D;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #333;
-    font-size: 16px;
-    cursor: pointer;
-    transition: border-color 0.3s;
+    padding: 10px; /* Padding inside the dropdown */
+    border: 2px solid #5D3C6D; /* Blue border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #fff; /* White background */
+    color: #333; /* Text color */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: border-color 0.3s; /* Transition for border color */
 }
 
 select:focus {
-    outline: none;
-    border-color: #0056b3;
-}
-
-/* Media Queries pour ajuster la mise en page sur les écrans plus petits */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 60px;
-    }
-
-    .sidebar:hover {
-        width: 250px;
-    }
-
-    .main-content {
-        margin-left: 60px; /* Réduit l'espace pour la sidebar sur les petits écrans */
-    }
-}
-
-@media (max-width: 480px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-
-    .sidebar:hover {
-        width: 100%;
-    }
-
-    .main-content {
-        margin-left: 0;
-        padding: 10px;
-    }
-
-    .header-wrapper {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .user-info {
-        margin-top: 10px;
-    }
+    outline: none; /* Remove default outline */
+    border-color: #0056b3; /* Darker blue on focus */
 }
 
 
