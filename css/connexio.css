@@ -1,0 +1,111 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',  sans-serif;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+
+#notre-histoire{
+    background-color: rgb(255, 255, 255);
+    max-width: 1300px;
+    width: 90%;
+    margin: 80px auto;
+    border: 10px solid white;
+    box-shadow: 2PX 2px 30px rgb(255, 255, 255);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.notre-hitoire-img{
+    width: 100%;
+    display: flex;
+    align-items: right;
+}
+.notre-histoire-img img{
+    
+    width: 90%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 350px;
+    object-fit: cover;
+    object-position: center;
+}
+.notre-histoire-imag img{
+    width: 85%;
+    height: 100%;
+    max-width: 550px;
+    max-height: 350px;
+    object-fit: cover;
+    object-position: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+form input{
+    margin: 3%;
+    padding: 10px;
+    outline: 0;
+    width: 20pc;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+ 
+form input[type='submit']{
+    background-color:  rgb(50, 203, 203);
+    border: 0;
+    width: 15pc;
+    color: white;
+    margin-top:8px ;
+    padding: 10px;
+}
+form input[type='submit']:hover{
+    background-color: azure;
+    color: black;
+}
+h1{
+    color: rgb(50, 203, 203);
+}
+
+a {
+
+    height: 25px;
+    background-color: rgb(50, 203, 203);
+        color: white;
+    width: 9pc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 0.9rem;
+    
+    border-radius: 10px; 
+}
+a:hover{
+    
+    background-color: black;
+
+}
+select{
+    
+    border-radius: 8px;
+    width: 21pc;
+    
+    margin-top:8px ;
+    padding: 10px;
+}
+.notre-histoire-image img{
+    width: 100%;
+    height: 210%;
+    max-height: 500px;
+    max-width: 500px;
+    object-fit: cover;
+    object-position: center;
+}

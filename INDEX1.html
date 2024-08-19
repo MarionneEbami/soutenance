@@ -1,0 +1,114 @@
+
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+    <link rel="stylesheet" href="css/style3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="logo"><img src="images/popo (1).jpg" alt="">
+        <?php if (isset($_SESSION['nom']) && isset($_SESSION['photo'])): ?>
+        <h3> <?= htmlspecialchars($_SESSION['nom']) ?>!</h3>
+    <?php endif; ?> 
+    </div>
+  <ul class="main">
+    <li class="active"><a href="#" ><i class="fas fa-home"></i><span>Accueil</span></a></li>
+    <li><a href="#"><i class="fa fa-object-group" aria-hidden="true"></i><span>posté un objet perdu</span></a></li>
+    <li><a href="#"><i class="fas fa-map-pin"></i><span>Retrouver un objet</span></a></li>
+    <li><a href="#"><i class="fas fa-address-card"></i><span>À propos</span></a></li>
+    <li><a href="#"><i class="far fa-address-book"></i><span>Contact</span></a></li>
+    <li><a href="#"><i class="fa fa-cogs"></i><span>Parametre</span></a></li>
+    <li><a href="#"><i class="far fa-heart"></i><span>Aide</span></a></li>
+    <form action="deconexion.php" method="post">
+    <li class="logout"><a href="#"> <i class="fa fa-power-off" aria-hidden="true"></i><span>deconnexion</span></a></li></form>
+  </ul>
+    
+   </div>
+    <div class="main-content">
+    <div class="herader-wrapper">
+       <div class="hearde-title">
+        <span>Found</span>
+        <h2>Object</h2>
+       </div>
+       <div class="user-info">
+        <div class="seacher-box">
+        <i class="fa-solid fa-search" aria-hidden="true"></i>
+        <input type="text" placeholder="search">
+    </div>
+    <img src="<?= htmlspecialchars($_SESSION['photo']) ?>" alt="" style="width: 40px; height: 40px; border-radius: 58%; cursor: pointer;">
+<?php else: ?>
+       </div>
+    </div>
+    <h1>Objet postés</h1>
+    <br>
+    <a href="../webcam"><button type="button" name="button">poster un objet</button></a>   
+
+    <table border="1" cellspacing="0" cellpadding="10">
+        <tr>
+         <td>#</td>
+         <td>Date & heure</td>
+         <td>Image</td>
+        </tr>
+        <?php
+        // Récupérer et afficher les images
+        try {
+            $query = $conn->query("SELECT date, image FROM images");
+            $images = $query->fetchAll(PDO::FETCH_ASSOC);
+ 
+            foreach ($images as $index => $image) {
+                echo '<tr>';
+                echo '<td>' . ($index + 1) . '</td>';
+                echo '<td>' . htmlspecialchars($image['date']) . '</td>';
+                echo '<td><img src="image/' . htmlspecialchars($image['image']) . '" alt="Image" style="width:100px; height:auto;"></td>';
+                echo '</tr>';
+            }
+ 
+        } catch (Exception $e) {
+            echo 'Erreur : ' . $e->getMessage();
+        }
+        ?>
+     </table>
+    
+</div>
+ 
+
+
+</div>
+
+
+    <script>
+$(document).ready(function() {
+    $('#myTable').DataTable();
+});
+$('#myTable').DataTable({
+    paging: true,
+    ordering: true,
+    info: true
+});
+
+</script>
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

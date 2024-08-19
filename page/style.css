@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+
+body{
+    background: #dadada;
+}
+
+#sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    background: #ffffff;
+    z-index: 1000;
+    font-family: 'Courier New', Courier, monospace;
+    transition: .3s ease;
+    overflow: hidden;
+}
+#sidebar.hide{
+    width: 60px;
+}
+
+#sidebar .brand{
+    font-size: 24px;
+    font-weight: 700;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    color: #8ac469;
+}
+#sidebar .brand .bx{
+   min-width: 60px; 
+   display: flex;
+   justify-content: center;
+}
+#sidebar .side-menu{
+    width: 100%;
+    margin-top: 48px;
+}
+#sidebar .side-menu li{
+    height: 48px;
+    background: transparent;
+    margin-left: 6px;
+    border-radius: 48px 0 0 48px;
+    padding: 4px;
+} 
+
+#sidebar .side-menu li.active{
+    background: #8ac469;
+    position: relative;
+    border-radius: 48px;
+
+}
+#sidebar .side-menu li.active a{
+    color: #dadada;
+}
+
+#sidebar .side-menu li.active a.logout{
+    color: red;
+}
+#sidebar .side-menu li.active::before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: -40px;
+    right: 0;
+    box-shadow: 20px 20px 0 #dadada;
+    z-index: -1;
+}
+#sidebar .side-menu li.active::after{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    bottom: -40px;
+    right: 0;
+    box-shadow: 20px -20px 0 #dadada;
+    z-index: -1;
+}
+#sidebar .side-menu li a{
+    width: 100%;
+    height: 100%;
+    background: #9dd48f;
+    display: flex;
+    align-items: center;
+    border-radius: 48px;
+    font-size: 16px;
+    color: #1d1f1c;
+    white-space: nowrap;
+}
+#sidebar .side-menu.top  li a:hover{
+    color: #4e65b1;
+}
+#sidebar .side-menu li a .bx{
+    min-width: calc(60px - ((4px + 6px * 2)));
+    display: flex;
+    justify-content: center;
+}
+#content{
+    position: relative;
+    width:  calc(100% - 280px); 
+    left: 288px;
+}
+#content nav{
+    height: 56px;
+    background: #ffffff;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    grid-gap: 24px;
+    position: relative;
+}
+
+#content nav::before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: -40px;
+    left: 0;
+    border-radius: 50%;
+    box-shadow: -20px  -20px   0 #dadada;
+}
+#content nav .bx.bx-menu{
+    cursor: pointer;
+}
+#content nav .nav-link{
+    font-size: 16px;
+    transition: .3s ease;
+}
+#content nav .nav-link:hover{
+    color: #8ac469; 
+}
+#content nav form {
+    max-width: 400px;
+    width: 100%;
+    margin-right: auto;
+}
+#content nav .nav-link{
+    font-size: 16px;
+    transition: .3s ease;
+}
+#content nav .nav-link:hover{
+    color: #8ac469; 
+}
+#content nav form {
+    max-width: 400px;
+    width: 100%;
+    margin-right: auto;
+}
+
+#content nav form .form.input{
+    display: flex ;
+    align-items: center;
+    height: 36px;
+}
+#content nav form .form-input input{
+    width: 80%;
+    padding: 0 18px;
+    height: 32px;
+    border: none;
+    background: #9dd48f;
+   border-radius: 36px 0 0  36px;
+   outline: none ;
+}
+#content nav form .form-input button{
+    width: 28px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    background: #697ac4;
+    color: #ffffff;
+    font-size: 18px;
+    margin-left: -4px;
+    border: none;
+    outline: none;
+    border-radius: 0 36px 36px 0;
+    cursor: pointer;
+}
+#content nav .notification{
+    font-size: 20px;
+    position: relative;
+}
+#content nav .notification .num{
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #fdf8f8;
+    background: #e20404;
+    color: #f5eeee;
+    font-weight: 700;
+    font-size: 12px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+#content nav .profile img{
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+}

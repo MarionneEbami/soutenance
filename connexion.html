@@ -1,0 +1,111 @@
+<?php
+
+ session_start();
+  $error="";
+try {
+    $connexion = new PDO('mysql:host=localhost;dbname=zina;charset=utf8;', 'root', '');
+    $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['motdepasse'])) {
+        $nom = htmlspecialchars($_POST['nom']);
+        $prenom = htmlspecialchars($_POST['prenom']);
+        $email = htmlspecialchars($_POST['email']);
+        $motdepasse = htmlspecialchars($_POST['motdepasse']);
+
+        if (!empty($nom) && !empty($prenom) && !empty($email) && !empty($motdepasse)) {
+            // Vérifiez si l'email existe déjà
+            $testnom = $connexion->prepare("SELECT * FROM utilsateurs WHERE email = ?");
+            $testnom->execute(array($email)); // Corrigé pour vérifier l'email
+
+            if ($testnom->rowCount() == 0) {
+                // Insérer le nouvel utilisateur
+                $insertion = $connexion->prepare("INSERT INTO utilsateurs(nom, prenom, email, motdepasse) VALUES(?, ?, ?, ?)");
+                $insertion->execute(array($nom, $prenom, $email, password_hash($motdepasse, PASSWORD_DEFAULT))); // Hash du mot de passe
+
+                 // Enregistrer le nom dans la session
+                 $_SESSION['nom'] = $nom;
+                
+                // Redirection vers la page d'accueil
+                header("Location: INDEX1.php");
+                exit();
+            } else {
+                $error = "Cet email existe déjà.";
+            }
+        } else {
+            $error = "Veuillez remplir tous les champs.";
+        }
+    }
+} catch (PDOException $e) {
+    echo "Erreur de connexion: " . $e->getMessage();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/conex.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Inscription</title>
+</head>
+<body>
+    <div class="wrapper">
+        <form id="registrationForm">
+            <h1>Inscription</h1>
+            <?php if ($error): ?>
+                 <div style="color: red;"><?= htmlspecialchars($error) ?></div>
+             <?php endif; ?>
+            <div class="input-box">
+                <input type="text" name="nom" id="nom" placeholder="Entre votre nom" required>
+                <i class="fa fa-user" aria-hidden="true"></i>
+            </div>
+            <div class="input-box">
+                <input type="text" name="prenom" id="prenom" placeholder="Entre votre prénom" required>
+                <i class="fa fa-user" aria-hidden="true"></i>
+            </div>
+            <div class="input-box">
+                <input type="email" name="email" id="email" placeholder="Entre votre Email" required>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="motdepasse" id="motdepasse" placeholder="Entre votre mot de passe" required>
+                <i class="fa fa-eye" id="togglePassword" aria-hidden="true" style="cursor: pointer;"></i>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Souviens-toi de moi</label>
+            </div>
+            <button type="submit" class="btn">Soumettre</button>
+            <div class="register-link">
+                <p>J'ai déjà un compte <a href="inscription.html">Se connecter</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('motdepasse');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePassword.classList.toggle('fa-eye');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = passwordInput.value;
+
+            // Vérification du mot de passe
+            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(password)) {
+                alert('Mot de passe faible, il doit contenir au moins 8 caractères, incluant des lettres, des chiffres et des symboles.');
+            } else {
+                alert('Inscription réussie !');
+                // Ajoutez ici la logique d'inscription
+            }
+        });
+    </script>
+</body>
+</html>

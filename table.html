@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+        }
+        .sidebar h2 {
+            color: #fff;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .main {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .stat {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            width: 30%;
+            text-align: center;
+        }
+        .stat h3 {
+            margin: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 200px;
+        }
+        .icon {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>LOGO</h2>
+    <p>Nom d'utilisateur</p>
+    <a href="#">Dashboard</a>
+    <a href="#">Autre lien</a>
+</div>
+
+<div class="main">
+    <div class="header">
+        <h1>Titre du Site</h1>
+        <div>
+            <i class="fas fa-user icon" title="Profil"></i>
+            <i class="fas fa-sign-out-alt icon" title="Déconnexion"></i>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <h3>Total Objets</h3>
+            <p>20</p>
+        </div>
+        <div class="stat">
+            <h3>Total Objets Retrouvés</h3>
+            <p>30</p>
+        </div>
+        <div class="stat">
+            <h3>Visiteurs</h3>
+            <p>50+</p>
+        </div>
+    </div>
+
+    <h2>Liste Objets Perdus Récemment Ajoutés</h2>
+    <div class="search-bar">
+        <input type="text" placeholder="Rechercher...">
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titre</th>
+                <th>Date</th>
+                <th>Lieu</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Objet 1</td>
+                <td>2024-08-01</td>
+                <td>Paris</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Objet 2</td>
+                <td>2024-08-02</td>
+                <td>Lyon</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Objet 3</td>
+                <td>2024-08-03</td>
+                <td>Marseille</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

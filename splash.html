@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Splash Screen</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        #splash-screen {
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: fade 3s infinite;
+        }
+
+        img {
+            width: 100px; /* Ajustez la taille selon vos besoins */
+            margin: 10px;
+        }
+
+        @keyframes fade {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        #welcome-message {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="splash-screen">
+        <img src="chemin/vers/passeport.png" alt="Passeport">
+        <img src="chemin/vers/cni.png" alt="CNI">
+        <img src="chemin/vers/loupe.png" alt="Loupe">
+        <div id="welcome-message">Bienvenue dans notre application !</div>
+        <div>Chargement...</div>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            // Attendre 25 secondes avant de rediriger vers la page d'inscription
+            setTimeout(function() {
+                window.location.href = 'connexion.html'; // Remplacez par le chemin de votre page d'inscription
+            }, 25000); // 25000 millisecondes = 25 secondes
+        };
+    </script>
+</body>
+</html>

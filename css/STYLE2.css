@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial,  sans-serif;
+    outline: none;
+    border: none;
+}
+body{
+    background: #ccd8f1; 
+    display: flex;
+}
+ .sidebar{
+    position: sticky;
+    width: 240px;
+    height: 100vh;
+    background: #4b4276;
+    padding: 0 1.7rem;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0 1.7rem;
+    overflow: hidden;
+   transition: all 0.5s linear;
+   color: #fff;
+}
+
+.sidebar .menu{
+    height: 88%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
