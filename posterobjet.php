@@ -150,17 +150,16 @@ session_start();
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+            background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
         }
         .modal-content {
-            width: 100%;
-    height: 100%;
-    outline: none;
-    border: 2px solid rgba(255, 255, 255, .2);
-    border-radius: 40px;
-    font-size: 16px;
-    color: #000;
-    padding: 20px 45px 20px 20px;
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 40%;
+            height: 100%;
+            border-radius: 24px; /* Largeur de la modal */
         }
         .close {
             color: #aaa;
@@ -299,13 +298,13 @@ select:focus {
     <ul class="main">
         <li class="active"><a href="#"><i class="fas fa-home"></i><span>Accueil</span></a></li>
         <li><a href="#"><i class="fa fa-object-group" aria-hidden="true"></i><span>Posté un objet perdu</span></a></li>
-        <li><a href="#"><i class="fas fa-map-pin"></i><span>Retrouver un objet</span></a></li>
+        <li><a href="signaler.php"><i class="fas fa-map-pin"></i><span>Retrouver un objet</span></a></li>
         <li><a href="#"><i class="fas fa-address-card"></i><span>À propos</span></a></li>
         <li><a href="#"><i class="far fa-address-book"></i><span>Contact</span></a></li>
         <li><a href="#"><i class="fa fa-cogs"></i><span>Paramètre</span></a></li>
         <li><a href="#"><i class="far fa-heart"></i><span>Aide</span></a></li>
         <form action="deconexion.php" method="post">
-            <li class="logout"><a href="#"><i class="fa fa-power-off" aria-hidden="true"></i><span>Déconnexion</span></a></li>
+            <li class="logout"><a href="insciption.php"><i class="fa fa-power-off" aria-hidden="true"></i><span>Déconnexion</span></a></li>
         </form>
     </ul>
 </div>

@@ -27,8 +27,8 @@ session_start();
     </div>
   <ul class="main">
     <li class="active"><a href="#" ><i class="fas fa-home"></i><span>Accueil</span></a></li>
-    <li><a href="#"><i class="fa fa-object-group" aria-hidden="true"></i><span>posté un objet perdu</span></a></li>
-    <li><a href="#"><i class="fas fa-map-pin"></i><span>Retrouver un objet</span></a></li>
+    <li><a href="INDEX4.php"><i class="fa fa-object-group" aria-hidden="true"></i><span>posté un objet perdu</span></a></li>
+    <li><a href="signaler.php"><i class="fas fa-map-pin"></i><span>Retrouver un objet</span></a></li>
     <li><a href="#"><i class="fas fa-address-card"></i><span>À propos</span></a></li>
     <li><a href="#"><i class="far fa-address-book"></i><span>Contact</span></a></li>
     <li><a href="#"><i class="fa fa-cogs"></i><span>Parametre</span></a></li>

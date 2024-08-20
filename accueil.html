@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Troov</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e8f0f2;
+}
+
+header {
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    margin-bottom: 20px;
+}
+        .hero img {
+            margin-left: 20px; /* Espace entre l'image et le texte */
+            max-width: 150px; /* Ajustez la taille selon vos besoins */
+        }
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.video-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+</style>
+<body>
+    <header>
+        <nav>
+           <ul class="main">
+    <li class="active"><a href="#" ><i class="fas fa-home"></i><span>Accueil</span></a></li>
+    <li><a href="INDEX4.php"><i class="fa fa-object-group" aria-hidden="true"></i><span>posté un objet perdu</span></a></li>
+    <li><a href="signaler.php"><i class="fas fa-map-pin"></i><span>Retrouver un objet</span></a></li>
+    <li><a href="#"><i class="fas fa-address-card"></i><span>À propos</span></a></li>
+    <li><a href="#"><i class="far fa-address-book"></i><span>Contact</span></a></li>
+    <li><a href="#"><i class="fa fa-cogs"></i><span>Parametre</span></a></li>
+    <li><a href="#"><i class="far fa-heart"></i><span>Aide</span></a></li>
+    <form action="deconexion.php" method="post">
+    <li class="logout"><a href="insciption.php"> <i class="fa fa-power-off" aria-hidden="true"></i><span>deconnexion</span></a></li></form>
+  </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <img src="image/images (1).jpeg" alt="">
+        <div>
+            <h1>UN OBJET PERDU SE TRANSFORME SOUVENT EN OBJET TROUVÉ !</h1>
+            <p>Vous avez perdu ou trouvé un objet ? Déclarez-le et la communauté se mobilise pour vous aider à le retrouver.</p>
+            <div class="buttons">
+                <button id="lost">J'AI PERDU</button>
+                <button id="found">J'AI TROUVÉ</button>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.getElementById('lost').addEventListener('click', function() {
+    alert("Vous avez sélectionné : J'ai perdu");
+});
+
+document.getElementById('found').addEventListener('click', function() {
+    alert("Vous avez sélectionné : J'ai trouvé");
+});
+
+    </script>
+</body>
+</html>
