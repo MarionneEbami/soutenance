@@ -153,11 +153,14 @@ session_start();
             background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
         }
         .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; /* Largeur de la modal */
+     width: 100%;
+    height: 100%;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #000;
+    padding: 20px 45px 20px 20px;* Largeur de la modal */
         }
         .close {
             color: #aaa;
